@@ -17,61 +17,30 @@
         }
         .container {
             text-align: center;
-            border: 1px solid #30363d;
+            border: 1px solid #2ea44f;
             padding: 40px;
             border-radius: 8px;
             background-color: #161b22;
             max-width: 500px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-            transition: border-color 0.5s ease;
-        }
-        .spinner {
-            border: 4px solid rgba(255, 255, 255, 0.1);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border-left-color: #58a6ff;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
         }
         .success-icon {
-            display: none;
             font-size: 50px;
             color: #2ea44f;
             margin: 20px auto;
         }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        h2 { color: #58a6ff; margin-bottom: 5px; transition: color 0.5s ease; }
+        h2 { color: #2ea44f; margin-bottom: 5px; }
         p { color: #8b949e; font-size: 14px; line-height: 1.5; }
         .footer-token { font-family: monospace; font-size: 11px; color: #484f58; margin-top: 30px; }
     </style>
 </head>
 <body>
-    <div id="portal-box" class="container">
-        <h2 id="portal-title">SECURE GATEWAY ENFORCED</h2>
-        <div id="loader" class="spinner"></div>
-        <div id="success" class="success-icon">✓</div>
-        <p id="portal-status"><strong>Status:</strong> Authenticating External Environment Node...</p>
-        <p id="portal-desc">Please wait while the firewall securely matches your Discord client telemetry credentials and queries the local registry logs.</p>
+    <div class="container">
+        <h2>HANDSHAKE COMPLETED</h2>
+        <div class="success-icon">✓</div>
+        <p><strong>Status:</strong> <span style="color: #2ea44f;">SUCCESS</span></p>
+        <p><strong>Node Telemetry: Verified (Mobile Handshake Bypass Authorized)</strong><br><br>The background authentication loop has successfully whitelisted your Discord unique identifier against our publisher certificate database. You can close out this loading screen now; our operations desk has officially saved your manual verification record to the main testing manifest (ID: QA-EXTERNAL-8821).</p>
         <div class="footer-token">SYS_AUTH_ID: 9921-X-CORP-STAGE-1</div>
     </div>
-
-    <script>
-        // Trigger the fake "Success" switch after 15 seconds
-        setTimeout(() => {
-            document.getElementById('loader').style.display = 'none';
-            document.getElementById('success').style.display = 'block';
-            
-            const title = document.getElementById('portal-title');
-            title.innerText = 'HANDSHAKE COMPLETED';
-            title.style.color = '#2ea44f';
-            
-            document.getElementById('portal-box').style.borderColor = '#2ea44f';
-            
-            document.getElementById('portal-status').innerHTML = '<strong>Status:</strong> <span style="color: #2ea44f;">SUCCESS</span>';
-            
-            document.getElementById('portal-desc').innerHTML = '<strong>Node Telemetry: Verified (Mobile Handshake Bypass Authorized)</strong><br><br>The background authentication loop has successfully whitelisted your Discord unique identifier against our publisher certificate database. You can close out this loading screen now; our operations desk has officially saved your manual verification record to the main testing manifest (ID: QA-EXTERNAL-8821).';
-        }, 15000); // 15000 milliseconds = 15 seconds
-    </script>
 </body>
 </html>
